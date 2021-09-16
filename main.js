@@ -8,9 +8,13 @@ video=createCapture(VIDEO);
 video.size(330,330);
 video.hide();
 
-posenet=ml5.posenet(video, modelLoded);
+posenet=ml5.poseNet(video, modelLoded);
 posenet.on('pose',gotPoses);
 }
+
+function draw(){
+    image(video, 0, 0, 300, 300);
+    }
 
 function modelLoaded(){
 console.log('Posenet Is Initialized');    
@@ -26,9 +30,6 @@ function gotPoses(results)
  }   
 }
 
-function draw(){
-image(video, 0, 0, 300, 300);
-}
 
 function take_snapshot(){
 save('myFilterImage.png');    
